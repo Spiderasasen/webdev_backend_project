@@ -33,3 +33,24 @@ function getOneAccount(accountId){
     }
     return accountFound;
 }
+
+//updating the account
+export function updateAccount(accountId, username, password, repositories, languages) {
+    const account = getOneAccount(accountId);
+
+    //if no accounts where found, just return the id
+    if(!account){
+        return undefined;
+    }
+
+    console.log("Before Change: ", account);
+
+    account.accountUsername = username;
+    account.accountPassword = password;
+    account.accountRepositories = repositories;
+    account.accountLanguages = languages;
+
+    console.log("After Change: ", account);
+
+    return account;
+}

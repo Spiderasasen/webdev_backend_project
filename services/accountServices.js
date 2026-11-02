@@ -35,7 +35,7 @@ function getOneAccount(accountId){
 }
 
 //updating the account
-export function updateAccount(accountId, username, password, repositories, languages) {
+function updateAccount(accountId, username, password, repositories, languages) {
     const account = getOneAccount(accountId);
 
     //if no accounts where found, just return the id
@@ -53,4 +53,27 @@ export function updateAccount(accountId, username, password, repositories, langu
     console.log("After Change: ", account);
 
     return account;
+}
+
+/*this is mainly going to be used for testing then for the real api use*/
+
+//getting all accounts
+export function getAllAccounts() {
+    console.log("your accounts: ", accounts);
+    return accounts;
+}
+
+//delating accounts
+export function deleteAccount(id) {
+    let index = 0;
+    for(let account of accounts){
+        if(account.accountId === id) {
+            console.log("Account found: ", account);
+            accounts.splice(index, 1);
+            return id;
+        }
+        index++;
+    }
+    console.log("No accounts found.");
+    return undefined;
 }

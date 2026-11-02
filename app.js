@@ -1,7 +1,7 @@
 // import express from "express";
 // import bodyParser from "body-parser";
 // import cors from "cors";
-import {createAccount, updateAccount} from "./services/accountServices.js";
+import {createAccount, getAllAccounts, deleteAccount} from "./services/accountServices.js";
 
 let account = createAccount("bob",
     "bobWasHere",
@@ -17,14 +17,8 @@ let account = createAccount("bob",
         "C#": 15
     });
 
-updateAccount(1, "Jim", "jimWasHere", [
-    "learning_C#",
-    "Company_dataset",
-    "backend_with_datasets"
-],
-    {
-        "sql": 50,
-        "python": 20,
-        "go": 15,
-        "C#": 15
-    });
+getAllAccounts();
+
+deleteAccount(1);
+
+getAllAccounts();

@@ -1,4 +1,4 @@
-export class Account {
+export default class Account {
     accountId = null;
     accountUsername = null;
     accountPassword = null;

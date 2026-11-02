@@ -1,7 +1,7 @@
 // import express from "express";
 // import bodyParser from "body-parser";
 // import cors from "cors";
-import {createAccount} from "./services/accountServices.js";
+import {createAccount, getOneAccount} from "./services/accountServices.js";
 
 let account = createAccount("bob",
     "bobWasHere",
@@ -16,5 +16,3 @@ let account = createAccount("bob",
         "go": 15,
         "C#": 15
     });
-
-console.log(account);

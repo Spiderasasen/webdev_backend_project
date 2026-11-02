@@ -21,3 +21,15 @@ export function createAccount(username, password, repositories, languages) {
     accounts.push(account);
     return account;
 }
+
+//getting one account
+function getOneAccount(accountId){
+    const accountFound = accounts.find(account => accountId === account.accountId);
+    if(accountFound){
+        console.log("Account found: ", accountFound);
+    }
+    else{
+        console.log("Account not found: ", accountId);
+    }
+    return accountFound;
+}

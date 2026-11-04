@@ -3,6 +3,8 @@ import Account from "../models/Account.js";
 //getting the size of the account
 const accounts = [];
 
+/*Functions that will be used by the frontend*/
+
 //creating the accounts
 export function createAccount(username, password, repositories, languages) {
     //getting the current amount and increasing to 1
@@ -54,6 +56,40 @@ function updateAccount(accountId, username, password, repositories, languages) {
 
     return account;
 }
+
+export function getSections(accountId, section){
+    const account = getOneAccount(accountId);
+    let results;
+
+    //just to pretty print the console log
+    const sections = ["Languages", "Repositories"];
+
+    //checking if there is an account found
+    if(account){
+        //checking if we are looking for languages or repositories
+        switch(section){
+            case "r": //getting the repositories
+                console.log(`getting ${sections[1]} from account id ${accountId}`);
+                results = account.accountRepositories;
+                break;
+            case "l": //getting the languages
+                console.log(`getting ${sections[0]} from account id ${accountId}`);
+                results = account.accountLanguages;
+                break;
+            default: //there was no section selected
+                console.log("Please declare a section in the parameter");
+                results = null;
+                break;
+        }
+        console.log(results);
+        return results;
+    }
+    //no account found
+    console.log("No account found")
+    return undefined
+
+}
+
 
 /*this is mainly going to be used for testing then for the real api use*/
 

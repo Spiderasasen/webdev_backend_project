@@ -1,7 +1,7 @@
 // import express from "express";
 // import bodyParser from "body-parser";
 // import cors from "cors";
-import {createAccount, getAllAccounts, deleteAccount} from "./services/accountServices.js";
+import {createAccount, getSections} from "./services/accountServices.js";
 
 let account = createAccount("bob",
     "bobWasHere",
@@ -17,8 +17,12 @@ let account = createAccount("bob",
         "C#": 15
     });
 
-getAllAccounts();
 
-deleteAccount(1);
+//getting the langauges
+getSections(1, "l");
 
-getAllAccounts();
+//getting the repositories
+getSections(1, "r");
+
+//testing if no sections was selected
+getSections(1, "c");

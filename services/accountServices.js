@@ -25,7 +25,7 @@ export function createAccount(username, password, repositories, languages) {
 }
 
 //getting one account
-function getOneAccount(accountId){
+export function getOneAccount(accountId){
     const accountFound = accounts.find(account => accountId === account.accountId);
     if(accountFound){
         console.log("Account found: ", accountFound);
@@ -37,7 +37,7 @@ function getOneAccount(accountId){
 }
 
 //updating the account
-function updateAccount(accountId, username, password, repositories, languages) {
+export function updateAccount(accountId, username, password, repositories, languages) {
     const account = getOneAccount(accountId);
 
     //if no accounts where found, just return the id

@@ -36,8 +36,8 @@ app.use(cors());
 app.get('/account/:accountId', apiGetOneAccount);
 app.post('/account', apiCreateAccount);
 app.put('/account/:accountId', apiUpdateAccount);
-app.get('/account/:accountId', apiGetLanguages);
-app.get('/account/:accountId', apiGetRepositories);
+app.get('/account/:accountId/languages', apiGetLanguages);
+app.get('/account/:accountId/repositories', apiGetRepositories);
 
 /*Testing Backend*/
 app.get('/accounts', apiGetAllAccounts);

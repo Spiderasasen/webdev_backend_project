@@ -26,7 +26,7 @@ export function createAccount(username, password, repositories, languages) {
 
 //getting one account
 export function getOneAccount(accountId){
-    const accountFound = accounts.find(account => accountId === account.accountId);
+    const accountFound = accounts.find(account => accountId == account.accountId);
     if(accountFound){
         console.log("Account found: ", accountFound);
     }
@@ -103,7 +103,7 @@ export function getAllAccounts() {
 export function deleteAccount(id) {
     let index = 0;
     for(let account of accounts){
-        if(account.accountId === id) {
+        if(account.accountId == id) {
             console.log("Account found: ", account);
             accounts.splice(index, 1);
             return id;

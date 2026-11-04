@@ -5,6 +5,7 @@ import {createAccount, getSections, getAllAccounts, deleteAccount, getOneAccount
 //creating the account
 export async function apiCreateAccount(req, res)  {
     console.log("Creating account using the api...");
+    console.log(`username: ${req.body.accountUsername}, password: ${req.body.password}, repo: ${req.body.accountRepositories}, language: ${req.body.language}`);
     const newAccount = await createAccount(req.body.accountUsername, req.body.accountPassword, req.body.accountRepositories, req.body.accountLanguages);
     res.json(newAccount);
     console.log(`New account created: ${newAccount}`);
@@ -12,7 +13,7 @@ export async function apiCreateAccount(req, res)  {
 
 //getting a single account
 export async function apiGetOneAccount(req, res)  {
-    console.log("Getting account using the api...");
+    console.log(`Getting account id ${req.params.accountId} using the api...`);
     const account = await getOneAccount(req.params.accountId);
     if(account){
         res.json(account);
